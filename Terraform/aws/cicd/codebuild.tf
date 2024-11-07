@@ -1,8 +1,9 @@
 resource "aws_codebuild_project" "front_end_build" {
   name          = "front-end-build"
+    service_role  = var.codebuild_role_arn   # Reference the IAM role for CodeBuild
   source {
     type      = "GITHUB"
-    location  = "https://github.com/yourusername/yourrepo"
+    location  = "https://github.com/dhruvRj18/G1_AWS_migration/webserver"
     buildspec = <<EOF
     version: 0.2
 

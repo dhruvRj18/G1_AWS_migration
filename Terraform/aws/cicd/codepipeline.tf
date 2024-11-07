@@ -1,10 +1,10 @@
 resource "aws_codepipeline" "front_end_pipeline" {
   name     = "front-end-pipeline"
-  role_arn = aws_iam_role.codepipeline_role.arn
+  role_arn = var.codepipeline_role_arn
 
   artifact_store {
     type     = "S3"
-    location = aws_s3_bucket.pipeline_bucket.bucket
+    location = var.pipeline_bucket_name
   }
 
   stage {
@@ -19,10 +19,10 @@ resource "aws_codepipeline" "front_end_pipeline" {
       output_artifacts = ["source_output"]
 
       configuration = {
-        Owner      = "yourusername"
-        Repo       = "yourrepo"
+        Owner      = "Dhruv"
+        Repo       = "G1_AWS_migration"
         Branch     = "main"
-        OAuthToken = "your-github-token"
+        OAuthToken = "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"
       }
     }
   }

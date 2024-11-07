@@ -1,7 +1,7 @@
 output "alb_dns" {
-  value = aws_lb.front_end_alb.dns_name
+  value = module.ec2.front_end_alb_dns  # Assuming you define `output "front_end_alb_dns"` in your `ec2` module
 }
 
 output "ec2_instance_id" {
-  value = aws_instance.front_end.id
+  value = module.ec2.front_end_instance_id  # Assuming you define `output "front_end_instance_id"` in `ec2` module
 }
