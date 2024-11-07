@@ -1,0 +1,50 @@
+<html>
+<body>
+    <h1>Get VaR Value</h1>
+    <input type="text" id="ticker" placeholder="Enter Ticker">
+    <button onclick="getVar()">Get VaR</button>
+    <button onclick="logout()">Logout</button>
+
+    <p id="result"></p>
+
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('token')) {
+            window.location.href = 'user_manage.html';  // Redirect to login page if not logged in
+        }
+
+        // Function to get VaR value
+        function getVar() {
+            const ticker = document.getElementById('ticker').value;
+
+            fetch('http://10.173.54.160/get_var', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),  // Send token with request
+                },
+                body: JSON.stringify({ticker}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('result').innerText = 'Error fetching VaR: ' + data.error;
+                    } else {
+                        document.getElementById('result').innerText = `VaR for ${ticker}: ${data.VaR}`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('result').innerText = 'Error fetching VaR';
+                });
+        }
+
+        // Function to log out the user
+        function logout() {
+            // Clear token from localStorage
+            localStorage.removeItem('token');
+            // Redirect to login page
+            window.location.href = 'user_manage.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+<body>
+    <h1>User Management</h1>
+
+    <!-- Registration Section -->
+    <h2>Register</h2>
+    <input type="text" id="register-username" placeholder="Enter Username">
+    <input type="email" id="register-email" placeholder="Enter Email">
+    <input type="password" id="register-password" placeholder="Enter Password">
+    <button onclick="register()">Register</button>
+
+    <!-- Login Section -->
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Enter Username">
+    <input type="password" id="login-password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+
+    <p id="result"></p>
+
+    <script>
+        // Function to handle registration
+        function register() {
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+
+            fetch('http://10.173.54.160/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, email, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = data.message || data.error;
+            })
+            .catch(error => {
+                document.getElementById('result').innerText = 'Error during registration';
+            });
+        }
+
+        // Function to handle login
+        function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            fetch('http://10.173.54.160/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({username, password}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.token) {
+                        // Store the JWT token in localStorage
+                        localStorage.setItem('token', data.token);
+                        // Redirect to index.html after login
+                        window.location.href = 'index.html';
+                    } else {
+                        document.getElementById('result').innerText = data.error;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('result').innerText = 'Error during login';
+                });
+        }
+    </script>
+</body>
+</html>
