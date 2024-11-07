@@ -3,7 +3,7 @@ module "vpc" {
   vpc_cidr             = var.vpc_cidr
   public_subnet_cidr_a = var.public_subnet_cidr_a  # CIDR block for subnet in first AZ
   public_subnet_cidr_b = var.public_subnet_cidr_b
-  private_subnet_cidr = var.private_subnet_cidr   # Example CIDR block
+  private_subnet_cidr  = var.private_subnet_cidr   # Example CIDR block
 }
 
 module "ec2" {
@@ -18,12 +18,6 @@ module "ec2" {
   ami_id             = var.ami_id
 }
 
-module "cicd" {
-  source               = "./cicd"
-  codepipeline_role_arn = module.iam.codepipeline_role_arn  # Pass the role ARN from IAM module
-  pipeline_bucket_name = module.s3.pipeline_bucket_name
-  codebuild_role_arn   = module.iam.codebuild_role_arn
-}
 
 module "iam" {
   source = "./iam"

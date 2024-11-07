@@ -6,15 +6,22 @@ resource "aws_instance" "front_end" {
   key_name = "on-prem-key"
 
   user_data = <<-EOF
-    #!/bin/bash
+     #!/bin/bash
     sudo yum update -y
     sudo amazon-linux-extras install nginx1.12 -y
+    sudo yum install -y git aws-cli
     sudo systemctl start nginx
     sudo systemctl enable nginx
 
-    # Pull HTML files from GitHub repo (simplified for example)
-    sudo curl -o /usr/share/nginx/html/index.html https://raw.githubusercontent.com/dhruvRj18/G1_AWS_migration/refs/heads/main/webserver/index.html?token=GHSAT0AAAAAACZLQFCGV2X4X3O4UE2I5DIKZZM7GNA
-    sudo curl -o /usr/share/nginx/html/user_manage.html https://raw.githubusercontent.com/dhruvRj18/G1_AWS_migration/refs/heads/main/webserver/user_manage.html?token=GHSAT0AAAAAACZLQFCG2R5APLMHUC57OQ4AZZM7GUA
+    # Retrieve GitHub token from SSM Parameter Store
+    TOKEN=$(aws ssm get-parameter --name "github_token" --with-decryption --query "Parameter.Value" --output text --region us-east-1)
+
+    # Clone the GitHub repository using the token
+    cd /usr/share/nginx/html
+    sudo git clone https://$TOKEN@github.com/dhruvRj18/G1_AWS_migration.git .
+
+    # Set up a cron job to pull updates every hour
+    (crontab -l 2>/dev/null; echo "0 * * * * cd /usr/share/nginx/html && git pull") | crontab -
   EOF
 
   tags = {

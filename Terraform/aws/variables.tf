@@ -21,3 +21,4 @@ variable "ami_id" {
   default = "ami-0984f4b9e98be44bf" # Example Amazon Linux 2 AMI
 }
 
+
