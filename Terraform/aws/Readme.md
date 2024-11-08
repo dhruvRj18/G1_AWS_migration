@@ -41,3 +41,6 @@ Run these commands to check if nginx is running.
 
 Now the load balancer target group health checks should be passing and it should be healthy. 
 Go to EC2 > Load balancer > open load balancer and copy dns to another tab and you should be able to see html page. 
+
+
+Don't forget to run terraform destroy to delete all the resources after you are done. 
