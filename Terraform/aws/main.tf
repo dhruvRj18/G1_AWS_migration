@@ -19,8 +19,3 @@ module "ec2" {
 }
 
 
-module "iam" {
-  source = "./iam"
-}
-
-
