@@ -21,4 +21,10 @@ variable "ami_id" {
   default = "ami-0984f4b9e98be44bf" # Example Amazon Linux 2 AMI
 }
 
+variable "github_pat" {
+  description = "GitHub Personal Access Token"
+  type        = string
+  sensitive   = true
+}
+
 

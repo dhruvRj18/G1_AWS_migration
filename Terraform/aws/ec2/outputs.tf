@@ -5,3 +5,7 @@ output "front_end_alb_dns" {
 output "front_end_instance_id" {
   value = aws_instance.front_end.id
 }
+
+output "bastion_host_instance_id" {
+  value = aws_instance.bastion_host.id
+}
