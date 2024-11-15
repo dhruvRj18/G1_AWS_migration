@@ -12,4 +12,4 @@ gunicorn
 flask-cors
 psycopg2-binary
 werkzeug
-flask-jwt-extended
+flask_jwt_extended
