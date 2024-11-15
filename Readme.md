@@ -113,7 +113,41 @@ server {
 
 ```
 
-## 
-    
+## Database VM setup
+1. Launch ubuntu machine
+2. Install postgresql
+   3. sudo apt update
+   4. sudo apt install postgresql postgresql-contrib -y
+   5. sudo systemctl start postgresql
+   6. sudo systemctl enable postgresql
+7.  Switch to the PostgreSQL User
+   8. sudo -i -u postgres
+   9. psql
+   10. CREATE DATABASE user_management_db;
+   11. CREATE USER flask_user WITH PASSWORD 'Secret55';
+   12. GRANT ALL PRIVILEGES ON DATABASE user_management_db TO flask_user;
+13. Connect to the New Database
+    14. \c user_management_db
+    15. CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password_hash TEXT NOT NULL
+);
+    16. GRANT ALL PRIVILEGES ON TABLE users TO flask_user;
+    17. GRANT USAGE, SELECT, UPDATE ON SEQUENCE users_id_seq TO flask_user;
+    17. \q
+    18. exit
+19. Configure PostgreSQL for External Access
+    20. sudo nano /etc/postgresql/*/main/postgresql.conf
+    21. Look for the listen_addresses setting and change it to: listen_addresses = '*'
+    22. Edit the Client Authentication File (pg_hba.conf):
+        23. sudo nano /etc/postgresql/*/main/pg_hba.conf
+        24. Change IPv4 local connection address from localhost to 0.0.0.0/0 to allow all connections
+        26. sudo systemctl restart postgresql
+27. sudo ufw allow 5432/tcp
+28. Test the Connection
+    29. psql -h your_server_ip -U flask_user -d user_management_db -W
+
        
 
