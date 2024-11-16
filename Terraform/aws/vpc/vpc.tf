@@ -66,3 +66,35 @@ resource "aws_route_table_association" "public_route_table_association_b" {
   route_table_id = aws_route_table.public_route_table.id
 }
 
+
+
+#VPN resources
+
+# Create a Virtual Private Gateway (VGW)
+resource "aws_vpn_gateway" "vpn_gateway" {
+  vpc_id = aws_vpc.main.id
+}
+
+# Customer Gateway (on-premises endpoint)
+resource "aws_customer_gateway" "onprem" {
+  bgp_asn    = 65000
+  ip_address = "142.156.1.223"
+  type       = "ipsec.1"
+}
+
+# VPN Connection
+resource "aws_vpn_connection" "vpn_connection" {
+  customer_gateway_id = aws_customer_gateway.onprem.id
+  vpn_gateway_id      = aws_vpn_gateway.vpn_gateway.id
+  type                = "ipsec.1"
+  static_routes_only  = true
+}
+
+# Private Route Table entry to route on-premises traffic to VGW
+resource "aws_route" "to_onprem" {
+  route_table_id         = aws_route_table.private_route_table.id
+  destination_cidr_block = "10.173.54.0/24"
+  gateway_id             = aws_vpn_gateway.vpn_gateway.id
+}
+
+
