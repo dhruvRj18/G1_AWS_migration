@@ -38,7 +38,7 @@ resource "aws_instance" "front_end" {
     sudo curl -H "Authorization: token $GITHUB_TOKEN" -o /usr/share/nginx/html/user_manage.html "https://raw.githubusercontent.com/dhruvRj18/G1_AWS_migration/refs/heads/main/webserver/user_manage.html"
 
     # Set up a cron job to update files every hour
-    (crontab -l 2>/dev/null; echo "0 * * * * curl -H 'Authorization: token $GITHUB_TOKEN' -o /usr/share/nginx/html/index.html 'https://raw.githubusercontent.com/$REPO_OWNER/$REPO_NAME/$BRANCH/$FILE_PATH_1' && curl -H 'Authorization: token $GITHUB_TOKEN' -o /usr/share/nginx/html/user_manage.html 'https://raw.githubusercontent.com/$REPO_OWNER/$REPO_NAME/$BRANCH/$FILE_PATH_2'") | crontab -
+    (crontab -l 2>/dev/null; echo "0 * * * * curl -H 'Authorization: token $GITHUB_TOKEN' -o /usr/share/nginx/html/index.html 'https://raw.githubusercontent.com/dhruvRj18/G1_AWS_migration/refs/heads/main/webserver/index.html' && curl -H 'Authorization: token $GITHUB_TOKEN' -o /usr/share/nginx/html/user_manage.html 'https://raw.githubusercontent.com/dhruvRj18/G1_AWS_migration/refs/heads/main/webserver/user_manage.html'") | crontab -
   EOF
   tags = {
     Name = "FrontEndInstance"
