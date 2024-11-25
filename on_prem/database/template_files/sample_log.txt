@@ -1,0 +1,234 @@
+login as: root
+root@10.173.65.23's password:
+Last login: Mon Nov 25 13:52:27 2024 from 10.119.65.106
+[root@rocky2 ~]# cd /tmp
+[root@rocky2 tmp]# sudo cat > /etc/resolv.conf <<EOF
+nameserver 8.8.8.8
+EOF
+[root@rocky2 tmp]# dnf install dos2unix
+Rocky Linux 9 - BaseOS                           14 kB/s | 4.1 kB     00:00
+Rocky Linux 9 - AppStream                        20 kB/s | 4.5 kB     00:00
+Rocky Linux 9 - Extras                           13 kB/s | 2.9 kB     00:00
+Dependencies resolved.
+================================================================================
+ Package           Architecture    Version                Repository       Size
+================================================================================
+Installing:
+ dos2unix          x86_64          7.4.2-4.el9            baseos          235 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 235 k
+Installed size: 692 k
+Is this ok [y/N]: y
+Downloading Packages:
+dos2unix-7.4.2-4.el9.x86_64.rpm                 694 kB/s | 235 kB     00:00
+--------------------------------------------------------------------------------
+Total                                           563 kB/s | 235 kB     00:00
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1
+  Installing       : dos2unix-7.4.2-4.el9.x86_64                            1/1
+  Running scriptlet: dos2unix-7.4.2-4.el9.x86_64                            1/1
+  Verifying        : dos2unix-7.4.2-4.el9.x86_64                            1/1
+
+Installed:
+  dos2unix-7.4.2-4.el9.x86_64
+
+Complete!
+[root@rocky2 tmp]# pwd
+/tmp
+[root@rocky2 tmp]# dos2unix run.sh
+dos2unix: converting file run.sh to Unix format...
+[root@rocky2 tmp]# ./run.sh hy-data03 10.173.65.23
+=== Start of run script ===
+hy-data03
+Linux hy-data03 5.14.0-503.14.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Nov 15 12:04:32 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+Last metadata expiration check: 0:00:28 ago on Mon 25 Nov 2024 02:03:02 PM EST.
+Dependencies resolved.
+Nothing to do.
+Complete!
+Last metadata expiration check: 0:00:29 ago on Mon 25 Nov 2024 02:03:02 PM EST.
+pgdg-redhat-repo-latest.noarch.rpm               17 kB/s |  12 kB     00:00
+Dependencies resolved.
+================================================================================
+ Package                Architecture Version           Repository          Size
+================================================================================
+Installing:
+ pgdg-redhat-repo       noarch       42.0-46PGDG       @commandline        12 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total size: 12 k
+Installed size: 17 k
+Downloading Packages:
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1
+  Installing       : pgdg-redhat-repo-42.0-46PGDG.noarch                    1/1
+  Verifying        : pgdg-redhat-repo-42.0-46PGDG.noarch                    1/1
+
+Installed:
+  pgdg-redhat-repo-42.0-46PGDG.noarch
+
+Complete!
+PostgreSQL common RPMs for RHEL / Rocky / AlmaL 825  B/s | 659  B     00:00
+PostgreSQL common RPMs for RHEL / Rocky / AlmaL 2.4 MB/s | 2.4 kB     00:00
+Importing GPG key 0x08B40D20:
+ Userid     : "PostgreSQL RPM Repository <pgsql-pkg-yum@lists.postgresql.org>"
+ Fingerprint: D4BF 08AE 67A0 B4C7 A1DB CCD2 40BC A2B4 08B4 0D20
+ From       : /etc/pki/rpm-gpg/PGDG-RPM-GPG-KEY-RHEL
+PostgreSQL common RPMs for RHEL / Rocky / AlmaL 223 kB/s | 412 kB     00:01
+PostgreSQL 17 for RHEL / Rocky / AlmaLinux 9 -  767  B/s | 659  B     00:00
+PostgreSQL 17 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+Importing GPG key 0x08B40D20:
+ Userid     : "PostgreSQL RPM Repository <pgsql-pkg-yum@lists.postgresql.org>"
+ Fingerprint: D4BF 08AE 67A0 B4C7 A1DB CCD2 40BC A2B4 08B4 0D20
+ From       : /etc/pki/rpm-gpg/PGDG-RPM-GPG-KEY-RHEL
+PostgreSQL 17 for RHEL / Rocky / AlmaLinux 9 -  193 kB/s | 257 kB     00:01
+PostgreSQL 16 for RHEL / Rocky / AlmaLinux 9 -  814  B/s | 659  B     00:00
+PostgreSQL 16 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+Importing GPG key 0x08B40D20:
+ Userid     : "PostgreSQL RPM Repository <pgsql-pkg-yum@lists.postgresql.org>"
+ Fingerprint: D4BF 08AE 67A0 B4C7 A1DB CCD2 40BC A2B4 08B4 0D20
+ From       : /etc/pki/rpm-gpg/PGDG-RPM-GPG-KEY-RHEL
+PostgreSQL 16 for RHEL / Rocky / AlmaLinux 9 -  320 kB/s | 486 kB     00:01
+PostgreSQL 15 for RHEL / Rocky / AlmaLinux 9 -  843  B/s | 659  B     00:00
+PostgreSQL 15 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+Importing GPG key 0x08B40D20:
+ Userid     : "PostgreSQL RPM Repository <pgsql-pkg-yum@lists.postgresql.org>"
+ Fingerprint: D4BF 08AE 67A0 B4C7 A1DB CCD2 40BC A2B4 08B4 0D20
+ From       : /etc/pki/rpm-gpg/PGDG-RPM-GPG-KEY-RHEL
+PostgreSQL 15 for RHEL / Rocky / AlmaLinux 9 -  387 kB/s | 712 kB     00:01
+PostgreSQL 14 for RHEL / Rocky / AlmaLinux 9 -  787  B/s | 659  B     00:00
+PostgreSQL 14 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+Importing GPG key 0x08B40D20:
+ Userid     : "PostgreSQL RPM Repository <pgsql-pkg-yum@lists.postgresql.org>"
+ Fingerprint: D4BF 08AE 67A0 B4C7 A1DB CCD2 40BC A2B4 08B4 0D20
+ From       : /etc/pki/rpm-gpg/PGDG-RPM-GPG-KEY-RHEL
+PostgreSQL 14 for RHEL / Rocky / AlmaLinux 9 -  479 kB/s | 1.0 MB     00:02
+PostgreSQL 13 for RHEL / Rocky / AlmaLinux 9 -  889  B/s | 659  B     00:00
+PostgreSQL 13 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+Importing GPG key 0x08B40D20:
+ Userid     : "PostgreSQL RPM Repository <pgsql-pkg-yum@lists.postgresql.org>"
+ Fingerprint: D4BF 08AE 67A0 B4C7 A1DB CCD2 40BC A2B4 08B4 0D20
+ From       : /etc/pki/rpm-gpg/PGDG-RPM-GPG-KEY-RHEL
+PostgreSQL 13 for RHEL / Rocky / AlmaLinux 9 -  357 kB/s | 945 kB     00:02
+PostgreSQL 12 for RHEL / Rocky / AlmaLinux 9 -  764  B/s | 659  B     00:00
+PostgreSQL 12 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+Importing GPG key 0x08B40D20:
+ Userid     : "PostgreSQL RPM Repository <pgsql-pkg-yum@lists.postgresql.org>"
+ Fingerprint: D4BF 08AE 67A0 B4C7 A1DB CCD2 40BC A2B4 08B4 0D20
+ From       : /etc/pki/rpm-gpg/PGDG-RPM-GPG-KEY-RHEL
+PostgreSQL 12 for RHEL / Rocky / AlmaLinux 9 -  384 kB/s | 857 kB     00:02
+Dependencies resolved.
+================================================================================
+ Package           Architecture     Version             Repository         Size
+================================================================================
+Disabling modules:
+ postgresql
+
+Transaction Summary
+================================================================================
+
+Complete!
+Last metadata expiration check: 0:00:04 ago on Mon 25 Nov 2024 02:03:54 PM EST.
+Dependencies resolved.
+================================================================================
+ Package                   Arch        Version                Repository   Size
+================================================================================
+Installing:
+ postgresql15-contrib      x86_64      15.10-1PGDG.rhel9      pgdg15      721 k
+ postgresql15-server       x86_64      15.10-1PGDG.rhel9      pgdg15      6.1 M
+Installing dependencies:
+ libicu                    x86_64      67.1-9.el9             baseos      9.6 M
+ postgresql15              x86_64      15.10-1PGDG.rhel9      pgdg15      1.5 M
+ postgresql15-libs         x86_64      15.10-1PGDG.rhel9      pgdg15      302 k
+
+Transaction Summary
+================================================================================
+Install  5 Packages
+
+Total download size: 18 M
+Installed size: 70 M
+Downloading Packages:
+(1/5): postgresql15-libs-15.10-1PGDG.rhel9.x86_ 309 kB/s | 302 kB     00:00
+(2/5): postgresql15-contrib-15.10-1PGDG.rhel9.x 427 kB/s | 721 kB     00:01
+(3/5): postgresql15-15.10-1PGDG.rhel9.x86_64.rp 318 kB/s | 1.5 MB     00:04
+(4/5): libicu-67.1-9.el9.x86_64.rpm             2.6 MB/s | 9.6 MB     00:03
+(5/5): postgresql15-server-15.10-1PGDG.rhel9.x8 755 kB/s | 6.1 MB     00:08
+--------------------------------------------------------------------------------
+Total                                           1.9 MB/s |  18 MB     00:09
+PostgreSQL 15 for RHEL / Rocky / AlmaLinux 9 -  1.7 MB/s | 2.4 kB     00:00
+Importing GPG key 0x08B40D20:
+ Userid     : "PostgreSQL RPM Repository <pgsql-pkg-yum@lists.postgresql.org>"
+ Fingerprint: D4BF 08AE 67A0 B4C7 A1DB CCD2 40BC A2B4 08B4 0D20
+ From       : /etc/pki/rpm-gpg/PGDG-RPM-GPG-KEY-RHEL
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1
+  Installing       : postgresql15-libs-15.10-1PGDG.rhel9.x86_64             1/5
+  Running scriptlet: postgresql15-libs-15.10-1PGDG.rhel9.x86_64             1/5
+  Installing       : libicu-67.1-9.el9.x86_64                               2/5
+  Installing       : postgresql15-15.10-1PGDG.rhel9.x86_64                  3/5
+  Running scriptlet: postgresql15-15.10-1PGDG.rhel9.x86_64                  3/5
+  Running scriptlet: postgresql15-server-15.10-1PGDG.rhel9.x86_64           4/5
+  Installing       : postgresql15-server-15.10-1PGDG.rhel9.x86_64           4/5
+  Running scriptlet: postgresql15-server-15.10-1PGDG.rhel9.x86_64           4/5
+  Installing       : postgresql15-contrib-15.10-1PGDG.rhel9.x86_64          5/5
+  Running scriptlet: postgresql15-contrib-15.10-1PGDG.rhel9.x86_64          5/5
+  Verifying        : postgresql15-15.10-1PGDG.rhel9.x86_64                  1/5
+  Verifying        : postgresql15-contrib-15.10-1PGDG.rhel9.x86_64          2/5
+  Verifying        : postgresql15-libs-15.10-1PGDG.rhel9.x86_64             3/5
+  Verifying        : postgresql15-server-15.10-1PGDG.rhel9.x86_64           4/5
+  Verifying        : libicu-67.1-9.el9.x86_64                               5/5
+
+Installed:
+  libicu-67.1-9.el9.x86_64
+  postgresql15-15.10-1PGDG.rhel9.x86_64
+  postgresql15-contrib-15.10-1PGDG.rhel9.x86_64
+  postgresql15-libs-15.10-1PGDG.rhel9.x86_64
+  postgresql15-server-15.10-1PGDG.rhel9.x86_64
+
+Complete!
+Initializing database ... OK
+
+Created symlink /etc/systemd/system/multi-user.target.wants/postgresql-15.service → /usr/lib/systemd/system/postgresql-15.service.
+CREATE DATABASE
+CREATE ROLE
+GRANT
+You are now connected to database "user_management_db" as user "postgres".
+CREATE TABLE
+GRANT
+GRANT
+INSERT 0 1
+#listen_addresses = 'localhost'         # what IP address(es) to listen on;
+                                        # defaults to 'localhost'; use '*' for all
+listen_addresses = 'localhost'          # what IP address(es) to listen on;
+                                        # defaults to 'localhost'; use '*' for all
+listen_addresses = '*'          # what IP address(es) to listen on;
+                                        # defaults to 'localhost'; use '*' for all
+host    all             all             127.0.0.1/32            scram-sha-256
+host    replication     all             127.0.0.1/32            scram-sha-256
+host    all             all             0.0.0.0/32            scram-sha-256
+host    all             all             0.0.0.0/0            scram-sha-256
+success
+success
+  ports: 5432/tcp
+PostgreSQL installation and User table creation complete!
+=== End of run script ===
+[root@rocky2 tmp]#
