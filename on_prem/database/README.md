@@ -2,7 +2,7 @@
 
 ## Initialize
 
-$ cd on_prem/database
+change directory (cd) to on_prem/database
 $ terraform init
 
 ## Test connection to VCSA in VMWare Lab (config in data03.tfvars)

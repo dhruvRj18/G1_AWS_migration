@@ -1,0 +1,162 @@
+
+login as: webuser
+webuser@10.173.65.23's password:
+Last login: Fri Nov  8 12:10:48 2024 from 10.119.64.148
+[webuser@hy-data03 ~]$ uname -a
+Linux hy-data03 5.14.0-503.14.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Nov 15 12:04:32 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+[webuser@hy-data03 ~]$ cd /tmp
+[webuser@hy-data03 tmp]$ cat run.log
+=== Start of run script ===
+hy-data03
+Linux hy-data03 5.14.0-503.14.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Nov 15 12:04:32 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+Rocky Linux 9 - BaseOS                           14 kB/s | 4.1 kB     00:00
+Rocky Linux 9 - AppStream                        19 kB/s | 4.5 kB     00:00
+Rocky Linux 9 - Extras                           13 kB/s | 2.9 kB     00:00
+Dependencies resolved.
+Nothing to do.
+Complete!
+Last metadata expiration check: 0:00:01 ago on Mon 25 Nov 2024 04:47:16 PM EST.
+pgdg-redhat-repo-latest.noarch.rpm               21 kB/s |  12 kB     00:00
+Dependencies resolved.
+================================================================================
+ Package                Architecture Version           Repository          Size
+================================================================================
+Installing:
+ pgdg-redhat-repo       noarch       42.0-46PGDG       @commandline        12 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total size: 12 k
+Installed size: 17 k
+Downloading Packages:
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1
+  Installing       : pgdg-redhat-repo-42.0-46PGDG.noarch                    1/1
+  Verifying        : pgdg-redhat-repo-42.0-46PGDG.noarch                    1/1
+
+Installed:
+  pgdg-redhat-repo-42.0-46PGDG.noarch
+
+Complete!
+PostgreSQL common RPMs for RHEL / Rocky / AlmaL 735  B/s | 659  B     00:00
+PostgreSQL common RPMs for RHEL / Rocky / AlmaL 2.4 MB/s | 2.4 kB     00:00
+PostgreSQL common RPMs for RHEL / Rocky / AlmaL 233 kB/s | 412 kB     00:01
+PostgreSQL 17 for RHEL / Rocky / AlmaLinux 9 -  1.9 kB/s | 659  B     00:00
+PostgreSQL 17 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+PostgreSQL 17 for RHEL / Rocky / AlmaLinux 9 -  172 kB/s | 257 kB     00:01
+PostgreSQL 16 for RHEL / Rocky / AlmaLinux 9 -  841  B/s | 659  B     00:00
+PostgreSQL 16 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+PostgreSQL 16 for RHEL / Rocky / AlmaLinux 9 -  346 kB/s | 486 kB     00:01
+PostgreSQL 15 for RHEL / Rocky / AlmaLinux 9 -  872  B/s | 659  B     00:00
+PostgreSQL 15 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+PostgreSQL 15 for RHEL / Rocky / AlmaLinux 9 -  453 kB/s | 712 kB     00:01
+PostgreSQL 14 for RHEL / Rocky / AlmaLinux 9 -  1.2 kB/s | 659  B     00:00
+PostgreSQL 14 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+PostgreSQL 14 for RHEL / Rocky / AlmaLinux 9 -  547 kB/s | 1.0 MB     00:01
+PostgreSQL 13 for RHEL / Rocky / AlmaLinux 9 -  1.2 kB/s | 659  B     00:00
+PostgreSQL 13 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+PostgreSQL 13 for RHEL / Rocky / AlmaLinux 9 -  657 kB/s | 945 kB     00:01
+PostgreSQL 12 for RHEL / Rocky / AlmaLinux 9 -  1.1 kB/s | 659  B     00:00
+PostgreSQL 12 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+PostgreSQL 12 for RHEL / Rocky / AlmaLinux 9 -  457 kB/s | 857 kB     00:01
+Dependencies resolved.
+================================================================================
+ Package           Architecture     Version             Repository         Size
+================================================================================
+Disabling modules:
+ postgresql
+
+Transaction Summary
+================================================================================
+
+Complete!
+Last metadata expiration check: 0:00:03 ago on Mon 25 Nov 2024 04:47:38 PM EST.
+Dependencies resolved.
+================================================================================
+ Package                   Arch        Version                Repository   Size
+================================================================================
+Installing:
+ postgresql15-contrib      x86_64      15.10-1PGDG.rhel9      pgdg15      721 k
+ postgresql15-server       x86_64      15.10-1PGDG.rhel9      pgdg15      6.1 M
+Installing dependencies:
+ libicu                    x86_64      67.1-9.el9             baseos      9.6 M
+ postgresql15              x86_64      15.10-1PGDG.rhel9      pgdg15      1.5 M
+ postgresql15-libs         x86_64      15.10-1PGDG.rhel9      pgdg15      302 k
+
+Transaction Summary
+================================================================================
+Install  5 Packages
+
+Total download size: 18 M
+Installed size: 70 M
+Downloading Packages:
+(1/5): postgresql15-libs-15.10-1PGDG.rhel9.x86_ 303 kB/s | 302 kB     00:00
+(2/5): postgresql15-contrib-15.10-1PGDG.rhel9.x 605 kB/s | 721 kB     00:01
+(3/5): postgresql15-15.10-1PGDG.rhel9.x86_64.rp 1.0 MB/s | 1.5 MB     00:01
+(4/5): postgresql15-server-15.10-1PGDG.rhel9.x8 3.1 MB/s | 6.1 MB     00:02
+(5/5): libicu-67.1-9.el9.x86_64.rpm             2.6 MB/s | 9.6 MB     00:03
+--------------------------------------------------------------------------------
+Total                                           3.7 MB/s |  18 MB     00:04
+PostgreSQL 15 for RHEL / Rocky / AlmaLinux 9 -  2.4 MB/s | 2.4 kB     00:00
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1
+  Installing       : postgresql15-libs-15.10-1PGDG.rhel9.x86_64             1/5
+  Running scriptlet: postgresql15-libs-15.10-1PGDG.rhel9.x86_64             1/5
+  Installing       : libicu-67.1-9.el9.x86_64                               2/5
+  Installing       : postgresql15-15.10-1PGDG.rhel9.x86_64                  3/5
+  Running scriptlet: postgresql15-15.10-1PGDG.rhel9.x86_64                  3/5
+  Running scriptlet: postgresql15-server-15.10-1PGDG.rhel9.x86_64           4/5
+  Installing       : postgresql15-server-15.10-1PGDG.rhel9.x86_64           4/5
+  Running scriptlet: postgresql15-server-15.10-1PGDG.rhel9.x86_64           4/5
+  Installing       : postgresql15-contrib-15.10-1PGDG.rhel9.x86_64          5/5
+  Running scriptlet: postgresql15-contrib-15.10-1PGDG.rhel9.x86_64          5/5
+  Verifying        : postgresql15-15.10-1PGDG.rhel9.x86_64                  1/5
+  Verifying        : postgresql15-contrib-15.10-1PGDG.rhel9.x86_64          2/5
+  Verifying        : postgresql15-libs-15.10-1PGDG.rhel9.x86_64             3/5
+  Verifying        : postgresql15-server-15.10-1PGDG.rhel9.x86_64           4/5
+  Verifying        : libicu-67.1-9.el9.x86_64                               5/5
+
+Installed:
+  libicu-67.1-9.el9.x86_64
+  postgresql15-15.10-1PGDG.rhel9.x86_64
+  postgresql15-contrib-15.10-1PGDG.rhel9.x86_64
+  postgresql15-libs-15.10-1PGDG.rhel9.x86_64
+  postgresql15-server-15.10-1PGDG.rhel9.x86_64
+
+Complete!
+Initializing database ... OK
+
+CREATE DATABASE
+CREATE ROLE
+GRANT
+You are now connected to database "user_management_db" as user "postgres".
+CREATE TABLE
+GRANT
+GRANT
+INSERT 0 1
+#listen_addresses = 'localhost'         # what IP address(es) to listen on;
+                                        # defaults to 'localhost'; use '*' for all
+listen_addresses = 'localhost'          # what IP address(es) to listen on;
+                                        # defaults to 'localhost'; use '*' for all
+listen_addresses = '*'          # what IP address(es) to listen on;
+                                        # defaults to 'localhost'; use '*' for all
+host    all             all             127.0.0.1/32            scram-sha-256
+host    replication     all             127.0.0.1/32            scram-sha-256
+host    all             all             0.0.0.0/32            scram-sha-256
+host    all             all             0.0.0.0/0            scram-sha-256
+success
+success
+  ports: 5432/tcp
+PostgreSQL installation and User table creation complete!
+=== End of run script ===
