@@ -5,42 +5,7 @@ Last login: Mon Nov 25 13:52:27 2024 from 10.119.65.106
 [root@rocky2 tmp]# sudo cat > /etc/resolv.conf <<EOF
 nameserver 8.8.8.8
 EOF
-[root@rocky2 tmp]# dnf install dos2unix
-Rocky Linux 9 - BaseOS                           14 kB/s | 4.1 kB     00:00
-Rocky Linux 9 - AppStream                        20 kB/s | 4.5 kB     00:00
-Rocky Linux 9 - Extras                           13 kB/s | 2.9 kB     00:00
-Dependencies resolved.
-================================================================================
- Package           Architecture    Version                Repository       Size
-================================================================================
-Installing:
- dos2unix          x86_64          7.4.2-4.el9            baseos          235 k
 
-Transaction Summary
-================================================================================
-Install  1 Package
-
-Total download size: 235 k
-Installed size: 692 k
-Is this ok [y/N]: y
-Downloading Packages:
-dos2unix-7.4.2-4.el9.x86_64.rpm                 694 kB/s | 235 kB     00:00
---------------------------------------------------------------------------------
-Total                                           563 kB/s | 235 kB     00:00
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Running transaction
-  Preparing        :                                                        1/1
-  Installing       : dos2unix-7.4.2-4.el9.x86_64                            1/1
-  Running scriptlet: dos2unix-7.4.2-4.el9.x86_64                            1/1
-  Verifying        : dos2unix-7.4.2-4.el9.x86_64                            1/1
-
-Installed:
-  dos2unix-7.4.2-4.el9.x86_64
-
-Complete!
 [root@rocky2 tmp]# pwd
 /tmp
 [root@rocky2 tmp]# dos2unix run.sh
