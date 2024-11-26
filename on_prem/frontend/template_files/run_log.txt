@@ -1,0 +1,76 @@
+login as: webuser
+webuser@10.173.65.21's password:
+Last login: Fri Nov  8 12:10:48 2024 from 10.119.64.148
+[webuser@hy-front01 ~]$ uname -a
+Linux hy-front01 5.14.0-503.14.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Nov 15 12:04:32 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+
+[webuser@hy-front01 ~]$ cd /tmp
+[webuser@hy-front01 tmp]$ cat run.log
+=== Start of run script ===
+hy-front01
+Linux hy-front01 5.14.0-503.14.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Nov 15 12:04:32 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+Rocky Linux 9 - BaseOS                           14 kB/s | 4.1 kB     00:00
+Rocky Linux 9 - AppStream                        18 kB/s | 4.5 kB     00:00
+Rocky Linux 9 - Extras                           12 kB/s | 2.9 kB     00:00
+Dependencies resolved.
+Nothing to do.
+Complete!
+Last metadata expiration check: 0:00:01 ago on Mon 25 Nov 2024 06:49:37 PM EST.
+Package httpd-2.4.62-1.el9.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+success
+success
+<html>
+<body>
+    <h1>Get VaR Value</h1>
+    <input type="text" id="ticker" placeholder="Enter Ticker">
+    <button onclick="getVar()">Get VaR</button>
+    <button onclick="logout()">Logout</button>
+
+    <p id="result"></p>
+
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('token')) {
+            window.location.href = 'user_manage.html';  // Redirect to login page if not logged in
+        }
+
+        // Function to get VaR value
+        function getVar() {
+            const ticker = document.getElementById('ticker').value;
+
+            fetch('http://10.173.54.160/get_var', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),  // Send token with request
+                },
+                body: JSON.stringify({ticker}),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('result').innerText = 'Error fetching VaR: ' + data.error;
+                    } else {
+                        document.getElementById('result').innerText = `VaR for ${ticker}: ${data.VaR}`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('result').innerText = 'Error fetching VaR';
+                });
+        }
+
+        // Function to log out the user
+        function logout() {
+            // Clear token from localStorage
+            localStorage.removeItem('token');
+            // Redirect to login page
+            window.location.href = 'user_manage.html';
+        }
+    </script>
+</body>
+</html>
+Web Server installation complete!
+=== End of run script ===
