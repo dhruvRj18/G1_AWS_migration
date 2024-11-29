@@ -102,6 +102,7 @@ resource "vsphere_virtual_machine" "vm" {
   # script that creates partition and filesystem for data disks
   provisioner "remote-exec" {
     inline = [
+      "sleep 120",
       "chmod +x /tmp/run.sh",
       "sleep 120",
       "echo ${var.jumphost_password} | sudo -S /tmp/run.sh ${var.jumphost_name} ${var.jumphost_ip} > /tmp/run.log"

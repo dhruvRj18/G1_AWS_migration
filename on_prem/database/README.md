@@ -20,6 +20,10 @@ Check the run.sh and run.log in /tmp, if needed
 Manual command line to test DB:
 psql postgresql://flask_user:Secret55@$hostip:5432/user_management_db
 
+Check the users table and quit:
+select \* from users
+\q
+
 ## Destroy VM (WARNING: VM cannot be recovered)
 
 $ terraform destroy --var-file=data03.tfvars
